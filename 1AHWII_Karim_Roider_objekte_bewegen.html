@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <title></title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1></h1>
+            <canvas id="scene" width="500" height="500" style="border: 1px dashed red"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+//let onTick = () =>
+//{
+//    console.log(new Date(), "tick")
+//}
+//setInterval (onTick, 500)
+yPos = 10
+xPos = 10
+let drawObjects = () =>
+{   
+    ctx.clearRect(0, 0, scene.width , scene.height )
+    ctx.beginPath()
+    ctx.strokeRect(50, yPos, 50, 50)
+    ctx.drawImage(player, 130, yPos, playerWidth, playerHeight)
+    ctx.drawImage(player, xPos, 10, playerWidth, playerHeight)
+    ctx.drawImage(player, 170, yPos, playerWidth2, playerHeight2)
+    ctx.drawImage(player, xPos, yPos, playerWidth, playerHeight)
+    yPos = yPos + 1
+    xPos = xPos + 1
+}
+setInterval (drawObjects, 2)
+let player = new Image ()
+player.src = "https://i.redd.it/iun8csn38jhy.png"
+
+let playerWidth = 900 / 15
+let playerHeight = 704 / 15
+let playerHeight2 = 900 / 14
+let playerWidth2 = 704 / 14
+
+            </script>
+        </body>
+    </html>
+        

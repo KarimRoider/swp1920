@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <title>Richtungslinien</title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1>Richtungslinien</h1>
+            <canvas id="scene" width="500" height="500" style="border: 1px dashed red"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+
+
+let drawLine = (x1, y1, x2, y2) =>
+    {
+        ctx.strokeStyle = "red"
+        if (x1 > x2)
+            {
+                ctx.strokeStyle = "green"
+            }
+       
+        ctx.beginPath()
+        ctx.moveTo(x1, y1)
+        ctx.lineTo(x2, y2)
+        ctx.stroke()
+        ctx.closePath()
+    }
+
+    drawLine(20, 10, 100, 50)  
+    drawLine(100, 60, 20, 100)        
+    drawLine(110, 50, 190, 10)        
+    drawLine(190, 100, 110, 60)
+            </script>
+        </body>
+    </html>
+        

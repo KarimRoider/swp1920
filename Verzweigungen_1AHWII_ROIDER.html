@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <title>Verzweigungen</title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1>Verzweigungen</h1>
+            <canvas id="scene" width="500" height="500" style="border: 1px dashed red"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+
+let fillCircle = (xCenter, yCenter, radius) =>
+    {
+        if (radius < 30)
+            {
+                ctx.fillStyle = "red"
+            }
+        else if (radius < 50)
+            {
+                ctx.fillStyle = "blue"
+            }
+        else 
+            {
+                ctx.fillStyle = "orange"
+            }
+        ctx.beginPath()
+        ctx.arc(xCenter, yCenter, radius, 0, 2 * Math.PI)
+        ctx.fill()
+        ctx.stroke()
+        ctx.closePath()
+    }
+
+
+for (let numberOfCircles = 0; numberOfCircles < 10; numberOfCircles = numberOfCircles + 1)
+{   
+    xCenter = 10 + 490 * Math.random()
+    yCenter = 10 + 490 * Math.random()
+    radius = 10 + 60 * Math.random()
+    fillCircle(xCenter, yCenter, radius)
+}
+            </script>
+        </body>
+    </html>
+        

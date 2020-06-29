@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <title></title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1></h1>
+            <canvas id="scene" width="500" height="500" style="border: 1px dashed red"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+let keyUpIsPressed = "no"
+let keyDownIsPressed = "false"
+let keyRightIsPressed = "false"
+let keyLeftIsPressed = "false"
+let onKeyDown = event =>
+{
+    console.log("Key down", event.key)
+    if (event.key = "ArrowUp")
+        {
+            keyUpIsPressed = "yes"
+        }
+    else 
+        {}    
+}
+window.addEventListener("keydown", onKeyDown)
+let onKeyUp = event => 
+{
+    console.log("Key up", event.key)
+    if (event.key = "ArrowUp")
+        {
+            keyUpIsPressed = "no"
+            console.log("it down")    
+        }
+
+    else if (event.key = "ArrowDown")
+        {
+            keyDownIsPressed = "false"
+            console.log("gay")
+        }
+    else if (event.key = "ArrowRight")
+        {
+            keyRightIsPressed = "false"
+        }
+    else if (event.key = "ArrowLeft")
+        {
+            keyLeftIsPressed = "false"
+        }
+    else
+        {
+            keyUpIsPressed = "false"
+            keyDownIsPressed = "false"
+            keyRightIsPressed = "false"
+            keyLeftIsPressed = "false"
+        }
+}
+window.addEventListener("keyup", onKeyUp)
+xPos = 250
+yPos = 250
+let playerWidth = 900 / 15
+let playerHeight = 704 / 15
+let draw = () =>
+{
+    
+console.log(keyUpIsPressed)
+    if ( keyUpIsPressed != "no")
+        {
+            yPos = yPos - 1
+        }
+    else 
+        {
+            yPos = yPos
+        }
+    ctx.clearRect(0, 0, scene.width, scene.height)
+    ctx.beginPath()
+    ctx.drawImage(player, xPos, yPos, playerWidth, playerHeight)
+    
+}
+setInterval (draw, 100)
+let player = new Image ()
+player.src = "https://p7.hiclipart.com/preview/209/490/397/the-elf-on-the-shelf-internet-meme-humour-barack-obama-png.jpg"
+
+console.log(keyUpIsPressed)
+
+            </script>
+        </body>
+    </html>
+        

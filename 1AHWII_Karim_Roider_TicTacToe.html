@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <title>Tic-Tac-Toe</title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1>Tic-Tac-Toe</h1>
+            <canvas id="scene" width="500" height="500" style="border: 2px solid black"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+
+
+
+//for (let numberOfCells = 3, cellSizeY = 30 ; cellSizeY < 91; cellSizeY = cellSizeY + 30)
+//{
+//    for (let cellSizeX = 30; cellSizeX < 91; cellSizeX = cellSizeX + 30)
+//    {
+//        ctx.beginPath()
+//        ctx.moveTo(cellSizeX - 30, cellSizeY - 30)
+//        ctx.lineTo(cellSizeX, cellSizeY - 30)
+//        ctx.moveTo(cellSizeX - 30, cellSizeY -30)
+//        ctx.lineTo(cellSizeX - 30, cellSizeY)
+//        ctx.stroke()
+//    }
+//}
+//for (let numberOfCells = 3, cellSizeY = 30, cellSizeYU = 30; cellSizeYU < cellSizeY * numberOfCells + 1; cellSizeYU = cellSizeYU + 30)
+//{
+//    for (let cellSizeX = 30, cellSizeXU = 30; cellSizeXU = cellSeizeX * numberOfCells + 1; cellSizeXU = cellSizeXU + 30)
+//    {
+//        ctx.beginPath()
+//        ctx.moveTo(cellSizeXU - 30, cellSizeYU - 30)
+//        ctx.lineTo(cellSizeXU, cellSizeYU - 30)
+//        ctx.moveTo(cellSizeXU - 30, cellSizeYU -30)
+//        ctx.lineTo(cellSizeXU - 30, cellSizeYU)
+//        ctx.stroke()
+//    }
+//}
+for (let numberOfCells = 7, cellSizeY = 30, cellSizeYU = 30; cellSizeYU < cellSizeY * numberOfCells + 1; cellSizeYU = cellSizeYU + 30)
+{
+    for (let cellSizeX = 30, cellSizeXU = 30; cellSizeXU < cellSizeX * numberOfCells + 1; cellSizeXU = cellSizeXU + 30)
+    {
+        ctx.beginPath()
+        ctx.moveTo(cellSizeXU - 30, cellSizeYU - 30)
+        ctx.lineTo(cellSizeXU, cellSizeYU - 30)
+        ctx.moveTo(cellSizeXU - 30, cellSizeYU -30)
+        ctx.lineTo(cellSizeXU - 30, cellSizeYU)
+        ctx.stroke()
+    }
+}
+
+
+            </script>
+        </body>
+    </html>
+        

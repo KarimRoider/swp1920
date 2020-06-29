@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <title>Abgeschnittener Kreis</title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1>Abgeschnittener Kreis</h1>
+            <canvas id="scene" width="500" height="500" style="border: 1px dashed red"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+
+let drawCircle = (radius, xcenter, ycenter) =>
+    {
+        if (radius > xcenter)
+        {
+            ctx.strokeStyle = "red"
+        }
+        else if (radius > ycenter)
+        {
+            ctx.strokeStyle = "red"
+        }
+        else if (radius + xcenter > 500)
+        {
+            ctx.strokeStyle = "red"
+        }
+        else if (radius + ycenter > 500)
+        {
+            ctx.strokeStyle = "red"
+        }
+        else
+        {
+            ctx.strokeStyle = "green"
+        }
+        ctx.beginPath()
+        ctx.arc(xcenter, ycenter, radius, 0, 2 * Math.PI)
+        ctx.stroke()
+        ctx.closePath()
+    }
+    drawCircle(50, 60, 40)
+    drawCircle(40, 50, 60)
+    drawCircle(60, 70, 50)
+    drawCircle(100, scene.width, scene.height)
+
+// Zeit benötigt: ca. 10 min.
+//Zeit benötigt MIT Zusatz: ca 25 min.
+            </script>
+        </body>
+    </html>
+        

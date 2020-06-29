@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Balkendiagramm 2</title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1>Balkendiagramm 2</h1>
+            <canvas id="scene" width="500" height="500" style="border: 1px dashed red"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+
+for (let l = 100, h = 10, p = 0,p2 = 120, l2 = 20; l2 < 120; l = l - 10, h = h + 10, p = p + 25, l2 = l2 + 10,p2 = p2 -10)
+{
+    ctx.beginPath()
+    ctx.strokeRect(p, 0, 20, l)
+    ctx.stroke()
+    
+    ctx.strokeRect(p, p2, 20, l2)
+    ctx.stroke()
+}
+
+            
+            
+            </script>
+        </body>
+    </html>

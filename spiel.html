@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <title>title</title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1>title</h1>
+            <canvas id="scene" width="500" height="500" style="border: 1px dashed red"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+
+
+
+//Variablen
+let playerWidth = 900 / 10
+let playerHeight = 704 / 10
+let playerHeight2 = 704 / 20
+let playerWidth2 = 900 / 20
+let xPos = scene.width / 2 - playerWidth / 2
+let yPos = scene.height - playerHeight
+let keyUpIsPressed = false
+let keyDownIsPressed = false
+let keyRightIsPressed = false
+let keyLeftIsPressed = false
+let keySpaceIsPressed = false
+let keyPIsPressed = false
+let xPos2 =  200
+let yPos2 = 40
+let ySpeed = 1
+let xSpeed = 1
+var Score = 0
+var Lifes = 3
+
+
+
+//Imnages
+let player = new Image()
+player.src = "https://www.pngmart.com/files/11/Not-Bad-Obama-Face-PNG-Clipart.png"
+let player2 = new Image()
+player2.src = "https://lh3.googleusercontent.com/UVJhVE6cDp9i41C-p3HRP3zgik2hKelMJ5TikA8i-1SmAq-gbOHTowfh8WukZ3MfyJa7nCeAtIRLVUwueEZi=s400" 
+
+//Lifes und Score 1
+ctx.font = "15px Arial"
+    ctx.fillText("Lives: " + Lifes , 10, 20)
+    ctx.fillText("Score: " + Score, 10, 35)
+
+
+//Main Script
+let draw = () =>
+    {
+   
+//Futter
+        ctx.clearRect(0, 40, scene.width, scene.height)
+        yPos2 += 1
+        ctx.drawImage(player2 ,xPos2 ,yPos2 ,playerWidth2, playerHeight2)
+
+//Futter am Boden
+        if (yPos2 > scene.height - playerHeight2 + 102)
+        {
+
+            xPos2 = Math.random() * (scene.width-playerWidth2)
+            yPos2 = 40
+            Lifes -= 1
+            ctx.clearRect(0, 0, scene.width, scene.height)
+            ctx.fillText("Lives: " + Lifes , 10, 20)
+            ctx.fillText("Score: " + Score, 10, 35)
+        }
+
+
+//Futter gefangen
+        if (yPos2 > yPos)
+        {   
+            {
+                if (yPos2 < yPos + 704 / 10)
+                {
+                    if (xPos2 > xPos)
+                    {
+                        if (xPos2 < xPos + 900 / 10)
+                        {
+                            xPos2 = Math.random() * (scene.width-playerWidth2)
+                            yPos2 = 40
+                            Score += 1
+                            ctx.clearRect(0,0, scene.width, scene.height)
+                            ctx.fillText("Lives: " + Lifes , 10, 20)
+                            ctx.fillText("Score: " + Score, 10, 35)
+                        }
+                    }   
+                }   
+            }  
+        } 
+
+//Falls 0 Leben
+        if (Lifes < 1)
+        {
+            Lifes = 3
+            Score = 0
+            xPos2 = Math.random() * scene.width
+            yPos2 = 40
+            ctx.clearRect(0,0,scene.width,scene.height)
+            ctx.fillText("Lives: " + Lifes , 10, 20)
+            ctx.fillText("Score: " + Score, 10, 35)
+        }
+
+
+//Bewegung Obama
+        if (keyLeftIsPressed)
+        {
+            xPos -= xSpeed
+        }
+
+        if (keyRightIsPressed)
+        {
+            xPos += xSpeed
+        }
+
+        if (xPos > scene.width - playerWidth)
+        {
+            xPos = scene.width - playerWidth
+        }
+
+        if (xPos < 0 )
+        {
+            xPos = 0
+        }
+        if (keySpaceIsPressed)
+        {
+            xSpeed = 2
+        }
+        else 
+        {   
+            xSpeed = 1
+        }
+        ctx.drawImage(player, xPos, yPos, playerWidth, playerHeight)
+}
+//Main Script Ende
+setInterval(draw, 1)
+
+//Tastatureingabe
+let onKeyDown = event => 
+{
+
+    if (event.key == "ArrowLeft")
+    {
+        keyLeftIsPressed = true
+    }
+    if (event.key == "ArrowRight")
+    {
+        keyRightIsPressed = true
+    }
+    if (event.key == " ")
+    {
+        keySpaceIsPressed = true
+    }
+    if (event.key == "p")
+    {
+        keyPIsPressed = true
+    }
+    
+}
+window.addEventListener("keydown", onKeyDown)
+let onKeyUp = event => 
+{
+    
+    if (event.key == "ArrowLeft")
+    {
+        keyLeftIsPressed = false
+    }
+    if (event.key == "ArrowRight")
+    {
+        keyRightIsPressed = false
+    }
+    if (event.key == " ")
+    {
+        keySpaceIsPressed = false
+    }
+    if (event.key == "p")
+    {
+        keyPIsPressed = false
+    }
+}
+    window.addEventListener("keyup", onKeyUp)
+    
+
+            </script>
+        </body>
+    </html>
+        

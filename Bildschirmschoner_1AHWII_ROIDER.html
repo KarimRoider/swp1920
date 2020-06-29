@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <html lang="de">
+        <head>
+            <title>Bildschirmschoner</title>
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <h1>Bildschirmschoner</h1>
+            <canvas id="scene" width="500" height="500" style="border: 1px dashed red"></canvas>
+            <script>
+/** @type {CanvasRenderingContext2D} */
+let ctx = scene.getContext("2d")
+let fillCircle = (xCenter, yCenter, radius) =>
+    {
+        
+        ctx.beginPath()
+        ctx.arc(xCenter,yCenter, radius, 0, 2* Math.PI)
+        ctx.fill()
+        ctx.stroke()
+        ctx.closePath()
+    }
+
+let setRandomFillColor = () =>
+{
+    
+        colorNumber = Math.random() * 5
+    if ( colorNumber < 1)
+        {
+            ctx.fillStyle = "Chartreuse"
+        }
+    else if (colorNumber < 2)
+        {
+            ctx.fillStyle = "DarkOrchid"
+        }
+    else if (colorNumber < 3)
+        {
+            ctx.fillStyle = "GreenYellow"
+        }
+    else if (colorNumber < 4) 
+        {
+            ctx.fillStyle = "MediumVioletRed"
+        }     
+    else
+        {
+            ctx.fillStyle = "LightSeaGreen"
+        } 
+       console.log(colorNumber)
+      
+}
+
+let fillRandomCircle = () =>
+{
+    setRandomFillColor()
+    let xCenter = 500 * Math.random()
+    let yCenter = 500 * Math.random()
+    let radius = 5 + 45 * Math.random()
+    
+    fillCircle(xCenter, yCenter, radius)
+}
+setInterval (fillRandomCircle, 10)
+//Zeit: ca 40 min
+</script>
+        </body>
+    </html>
+    
